@@ -9,8 +9,6 @@ def create_output():
 		text_response = input_text.get()
 		sb.getoutput("rm -rf exe.sh")
 		sb.getoutput("rm -rf output.png")
-		#print(str(text_response))
-        #problem with returned data here
 		first_commands = ('echo "curl -s', str(text_response),'|', 'rembg i -a -ae 15 > output.png" > exe.sh');
 		command = ' '.join(first_commands)
 		sb.getoutput(str(command))
@@ -20,6 +18,7 @@ def create_output():
 		text_widget.insert(tk.END, "Background removed!")
 		text_widget.grid(row=3, column=0)
 		sb.getoutput("open .")
+		sb.getoutput("rm -rf exe.sh")
 	else:
 		text_response = "Input cannot be empty!"
 		text_widget = tk.Text()
